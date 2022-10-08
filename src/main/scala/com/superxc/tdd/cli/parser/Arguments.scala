@@ -1,10 +1,11 @@
 package com.superxc.tdd.cli.parser
 
-class Arguments {
-  def getString(name: String): String = ""
+case class Arguments(values: Map[String, Any]) {
 
-  def getInt(name: String): Int = 0
+  def getString(name: String): String = values(name).asInstanceOf[String]
 
-  def getBool(name: String): Boolean = false
+  def getInt(name: String): Int = values(name).asInstanceOf[Int]
+
+  def getBool(name: String): Boolean = values(name).asInstanceOf[Boolean]
 
 }
